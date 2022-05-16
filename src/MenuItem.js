@@ -1,25 +1,19 @@
 import logo from './logo.svg';
 import { useEffect } from 'react';
 
-function MenuItem({menuItem = {}, menuData = []}) {
+function MenuItem({menuItem = {}, setCPage = () => {}}) {
   const {label, link} = menuItem;
-  useEffect(()=>{
-    
-  console.log("Menu Props:::",link);
-  },[])
+  
+  const handleSetCPage = (e) => {
+    if(e.target){
+        setCPage(e.target.name);
+    }
+  }
   return (
     <>
-    a
-      {menuData.map((item)=>{
-        return(
-        <li style={{display:'inline-block', margin: '0 5px'}}>
-          <a>{item.label}</a>
-        </li>
-        )
-      })}  
-      {/* <li style={{display:'inline-block', margin: '0 5px'}}>
-        <a href={link}>{label}</a>
-      </li> */}
+      <li style={{display:'inline-block', margin: '0 5px'}}>
+        <a onClick={(e)=>handleSetCPage(e)} name={link}>{label}</a>
+      </li>
     </>  
   );
 }

@@ -1,18 +1,23 @@
 import MenuItem from './MenuItem';
 
-function Menu() {
+function Menu({setCPage = () => {}}) {
   const menuData = [
-    { label:"Home", link:"https://www.google.tech/home"},
-    { label:"About", link:"https://www.google.tech/home"},
-    { label:"Products", link:"https://www.google.tech/home"},
-    { label:"Services", link:"https://www.google.tech/home"},
-    { label:"Contact", link:"https://www.google.tech/home"}
+    { label:"Home", link:"home"},
+    { label:"About", link:"about"},
+    { label:"Products"},
+    { label:"Services", link:"services"},
+    { label:"Contact", link:"contact"}
   ];
 
   return (
       <ul style={{float:'right', listStyle:'none'}}>
-        
-        <MenuItem menuItem={{ label:"Home", link:"https://www.google.tech/home"}} menuData={menuData} />
+        {
+          menuData && menuData !== [] && menuData.length > 0 && menuData.map((menuItem)=>{
+            if(menuItem.link){
+              return(<MenuItem menuItem={menuItem} setCPage={setCPage} />)
+            }
+          })
+        }
       </ul>
   );
 }
