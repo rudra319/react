@@ -14,7 +14,7 @@ function App1() {
         <Header setCPage={setCPage} />
       </div>
       <Chinmayee/>
-      <Dashboard />
+      {/* <Dashboard /> */}
       {cPage !== "" && (cPage === 'home' || cPage === "Home") && (
         <>
           <h1>Home Page Contentr</h1>
