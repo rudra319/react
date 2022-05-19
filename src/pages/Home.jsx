@@ -3,7 +3,7 @@ import {Button, Container, Row, Col} from 'react-bootstrap';
 import Button1 from 'react-bootstrap/Button';
 import './Dashboard.css'
 
-export default function Dashboard (){
+export default function Home (){
 
 const [flag, setFlag] = useState(false);
     return(

@@ -1,20 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
 import Header from './Header';
 import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Demo from './pages/Sanghamitra/Sanghamitra';
+import Sanghamitra from './pages/Sanghamitra/Sanghamitra';
+import Deepti from './pages/Deepti/Deepti';
+
 function App1() {
   const [cPage, setCPage] = useState("home")
-  //console.log(cPage)
   return (
     <>
-      {/* <Chinmayee/> */}
-      {/* <Dashboard /> */}
-      <Demo/>
-     
+      <Sanghamitra/>
+     <Deepti />
     </>
   );
 }
 
-export default App1;
+export default App;
