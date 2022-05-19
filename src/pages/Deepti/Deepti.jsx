@@ -1,7 +1,13 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 export default function Deepti (){
     return(
+      <>
+      <Helmet>
+        <title>Deepti</title>
+      </Helmet>
+      <h1>Deepti</h1>
         <div class="row mt-4">
         <div class="col-md-4">
           <h4>Add User</h4>
@@ -85,5 +91,6 @@ export default function Deepti (){
         </div>
 
       </div>
-    )
+   </> 
+   )
 }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {Button, Container, Row, Col} from 'react-bootstrap';
 import Button1 from 'react-bootstrap/Button';
-import './Dashboard.css'
+import './Home.css'
 
 export default function Home (){
 

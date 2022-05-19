@@ -40,22 +40,11 @@ export default function Demo (){
 const [flag, setFlag] = useState(false);
     return(
        <div className='Demo'>
-           <h1>React Tutorial</h1>
-           
-           <Navbar bg="dark" variant="dark">
-                <Container>
-                <Navbar.Brand href="#home">View List</Navbar.Brand>
-                <Nav className="me-auto">
-                <Nav.Link href="#home">Home</Nav.Link>
-                <Nav.Link href="#features">Syllabus</Nav.Link>
-                <Nav.Link href="#pricing">Tutorials</Nav.Link>
-                </Nav>
-                </Container>
-            </Navbar>
-            <br></br>
-           <Button variant='primary'>View</Button>{' '}
-           <Button variant='danger'>Hide</Button>
-           <br></br>&nbsp;&nbsp;&nbsp;
+          <h1>Sanghmitra</h1>
+          <br></br>
+          <Button variant='primary'>View</Button>{' '}
+          <Button variant='danger'>Hide</Button>
+          <br></br>&nbsp;&nbsp;&nbsp;
 
            <Table striped bordered hover>
                 <thead>
@@ -68,7 +57,9 @@ const [flag, setFlag] = useState(false);
                     </tr>
                 </thead>
                 <tbody>
-                {distRes.map((item, index)=>{
+                {distRes
+                .filter(item => item.vchName !== '')
+                .map((item, index)=>{
                   
                     return(<tr>
                     <td>{index+1}</td>
