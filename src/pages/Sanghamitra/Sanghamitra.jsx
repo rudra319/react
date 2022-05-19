@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from 'react';
 import {Button, Container, Row, Col,Navbar,Nav,striped,bordered ,hover ,Table,Card} from 'react-bootstrap';
 import Button1 from 'react-bootstrap/Button';
-import './Demo.css'
+import './Sanghamitra.css'
 
 export default function Demo (){
     const [feedbackData, setFeedbackData] = useState({});
@@ -68,9 +68,10 @@ const [flag, setFlag] = useState(false);
                     </tr>
                 </thead>
                 <tbody>
-                {distRes.map(item=>{
+                {distRes.map((item, index)=>{
+                  
                     return(<tr>
-                    <td>{count}</td>
+                    <td>{index+1}</td>
                     <td>{item.intId?item.intId:"NA"}</td>
                     <td>{item.vchName?item.vchName:"NA"}</td>
                     <td>{item.vchMail?item.vchMail:"NA"}</td>
