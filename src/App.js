@@ -4,6 +4,8 @@ import Header from './Header';
 import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Dashboard from './pages/dashboard/Dashboard';
+import Lopita from './pages/dashboard/Lopita';
+import Image from 'react-bootstrap/Image'
 
 function App1() {
   const [cPage, setCPage] = useState("home")
@@ -13,7 +15,8 @@ function App1() {
       <div>
         <Header setCPage={setCPage} />
       </div>
-      <Dashboard />
+      {/* <Dashboard/> */}
+      <Lopita />
       {cPage !== "" && (cPage === 'home' || cPage === "Home") && (
         <>
           <h1>Home Page Contentr</h1>
