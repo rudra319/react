@@ -1,0 +1,15 @@
+.card-title{
+    color: rgb(42, 206, 218);
+    font-style: italic;
+    text-transform: uppercase;
+}
+
+/* Header/Logo Title */
+.Banner-Background {
+    padding: 60px;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+    font-size: 30px;
+  }
+  
