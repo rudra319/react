@@ -57,7 +57,7 @@ function Home () {
             <br></br>
             <Row>
                 <Col className='content'  md="8">
-                    <h3>Feedback List</h3>
+                <h5 className="card-title">Feedback List</h5>
                     <Table striped bordered hover>
                         <thead>
                             <tr>
@@ -71,17 +71,18 @@ function Home () {
                         </thead>
                         <tbody>
                         {
-                        distRes.map(item=>{
-                            if(item.vchName!=''){
+                        distRes
+                        .filter((item) => item.vchName != '')
+                        .map((item,index)=>{
                             return(<tr>
-                                <td>1</td>
+                                <td>{index+1}</td>
                                 <td>{item.vchName}</td>
                                 <td>{item.vchMail}</td>
                                 <td>{item.intMobile}</td>
                                 <td>{item.vchFeedback}</td>
                                 <td>{item.dtmCreatedOn}</td>
                                 </tr>)
-                            }
+                            
                         })}
                         </tbody>
                     </Table>
