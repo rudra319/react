@@ -3,7 +3,7 @@ import {Button, Container, Row, Col,Navbar,Nav,striped,bordered ,hover ,Table,Ca
 import Button1 from 'react-bootstrap/Button';
 import './Lopita.css';
 
-export default function Main (){
+export default function Lopita (){
     const [feedbackData, setFeedbackData] = useState({});
     const [distRes, setDistRes] = useState([]);
     const [count, setCount] = useState(1);
