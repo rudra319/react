@@ -1,0 +1,10 @@
+.main {
+    text-align: center;
+  }
+  .line {
+    border: 10px solid green;
+    border-radius: 5px;
+  }
+  /* .card{
+    style="width:400px";
+  } */
