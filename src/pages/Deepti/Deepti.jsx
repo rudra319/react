@@ -1,95 +1,76 @@
-import React from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
+import AddFeedback from './AddFeedback';
 
 export default function Deepti (){
+
+  const [feedbackData, setFeedbackData] = useState({});
+  const [distRes, setDistRes] = useState([]);
+
+  const getFeedbackData = async() => {
+    // const getFeedback = await fetch("http://164.164.122.169:8090/state-dashboard/api/BskyData/getFeedback/97d7f7d0-2c6e-4f80-bce2-0d8b5cfaab5b");
+    // console.log("getFeedback::::",getFeedback);
+
+    await fetch("http://164.164.122.169:8090/state-dashboard/api/BskyData/getFeedback/97d7f7d0-2c6e-4f80-bce2-0d8b5cfaab5b")
+      .then(response => response.json())
+      .then(data => {
+          console.log("data::::",data);
+          setFeedbackData(data);
+      });
+  }
+    
+  useEffect(()=>{
+    getFeedbackData();
+  },[]);
+
+  useEffect(()=>{
+    if(feedbackData.distRes){
+      setDistRes(feedbackData.distRes);
+    }
+  },[feedbackData]);
+
     return(
       <>
       <Helmet>
         <title>Deepti</title>
       </Helmet>
-      <h1>Deepti</h1>
-        <div class="row mt-4">
-        <div class="col-md-4">
-          <h4>Add User</h4>
-          <form>
+      <div className='container'>
+        <h1>Deepti</h1>
+        <div className="row mt-4">
+          <AddFeedback />
+          <div className="col-md-7 offset-md-1 table-responsive">
+            <h4>View User</h4>
+            <table className="table table-hover table-bordered">
+              <thead className="table-light">
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Mobile</th>
+                  <th>Remarks</th>
+                  <th>Given On</th>
+                </tr>
+              </thead>
+              <tbody>
 
-            <div class="row mb-4">
-              <div class="col">
-                <div class="form-outline">
-                  <input type="text" id="form3Example1" class="form-control" />
-                  <label class="form-label" for="form3Example1">First name</label>
-                </div>
-              </div>
-              <div class="col">
-                <div class="form-outline">
-                  <input type="text" id="form3Example2" class="form-control" />
-                  <label class="form-label" for="form3Example2">Last name</label>
-                </div>
-              </div>
-            </div>
+              {distRes
+                .filter((item) => item.vchName != '')
+                .map((item,index)=>{
+                  return(<tr>
+                    <td>{index+1}</td>
+                    <td>{item.vchName}</td>
+                    <td>{item.vchMail}</td>
+                    <td>{item.intMobile}</td>
+                    <td>{item.vchFeedback}</td>
+                    <td>{item.dtmCreatedOn}</td>
+                  </tr>)                  
+              })}           
+                
+              </tbody>
+            </table>
+          </div>
 
-            <div class="form-outline mb-4">
-              <input type="email" id="form3Example3" class="form-control" />
-              <label class="form-label" for="form3Example3">Email address</label>
-            </div>
-
-            <div class="form-outline mb-4">
-              <input type="number" id="form3Example4" class="form-control" />
-              <label class="form-label" for="form3Example4">Contact No</label>
-            </div>
-
-            <button type="submit" class="btn btn-primary btn-block mb-4">Submit</button>
- 
-          </form>
         </div>
-        
-        <div class="col-md-7 offset-md-1 table-responsive">
-          <h4>View User</h4>
-          <table class="table table-hover table-bordered">
-            <thead class="table-light">
-              <tr>
-                <th>Firstname</th>
-                <th>Lastname</th>
-                <th>Email</th>
-                <th>Contact No</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>John</td>
-                <td>Doe</td>
-                <td>john@example.com</td>
-                <td>0987654321</td>
-              </tr>
-              <tr>
-                <td>Mary</td>
-                <td>Moe</td>
-                <td>mary@example.com</td>
-                <td>0987654321</td>
-              </tr>
-              <tr>
-                <td>July</td>
-                <td>Dooley</td>
-                <td>july@example.com</td>
-                <td>0987654321</td>
-              </tr>
-              <tr>
-                <td>Mary</td>
-                <td>Moe</td>
-                <td>mary@example.com</td>
-                <td>0987654321</td>
-              </tr>
-              <tr>
-                <td>July</td>
-                <td>Dooley</td>
-                <td>july@example.com</td>
-                <td>0987654321</td>
-              </tr>
-              
-            </tbody>
-          </table>
-        </div>
-
       </div>
    </> 
    )
