@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import {Button, Container, Row, Col} from 'react-bootstrap';
 import Button1 from 'react-bootstrap/Button';
 import './Home.css'
+import { Link } from 'react-router-dom';
 
 export default function Home (){
 
 const [flag, setFlag] = useState(false);
     return(
         <Container fluid>
+            <Link to="legends">About</Link>
             <h1 className={flag ? "heading":'heading1'}>Dashboard</h1>
             <Button variant="danger" onClick={()=>setFlag(!flag)}>Click</Button>
             <Button1 variant="danger" onClick={()=>setFlag(!flag)}>Click</Button1>
