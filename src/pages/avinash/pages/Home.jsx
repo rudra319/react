@@ -1,25 +1,22 @@
-import { Button } from 'bootstrap';
 import React, { Component, useEffect, useState } from 'react';
+import axios from 'axios';
+import { Button } from 'bootstrap';
 import { Col, Container, Form, Row, Table } from 'react-bootstrap';
+import {getFeedBackData} from '../action'
+
 
 function Home () {
     const [feedbackData, setFeedbackData] = useState({});
     const [distRes, setDistRes] = useState([]);
-    const getFeedBackData= async()=>{
-
-        // const getFeedback = await fetch("http://164.164.122.169:8090/state-dashboard/api/BskyData/getFeedback/97d7f7d0-2c6e-4f80-bce2-0d8b5cfaab5b");
-        // console.log("getFeedback::::",getFeedback);
-
-        await fetch("http://164.164.122.169:8090/state-dashboard/api/BskyData/getFeedback/97d7f7d0-2c6e-4f80-bce2-0d8b5cfaab5b")
-        .then(response => response.json())
-        .then(data => {
-            console.log("data::::",data);
-            setFeedbackData(data);
-        });
-        console.log("getFeedback1:::",feedbackData.status)
+    
+    
+    const callAPI = async()=>{
+        const data = await getFeedBackData();
+        setFeedbackData(data);
+        console.log("fbData::::",data);
     }
     useEffect(()=>{
-        getFeedBackData();
+        callAPI() 
     },[]);
 
     useEffect(()=>{
