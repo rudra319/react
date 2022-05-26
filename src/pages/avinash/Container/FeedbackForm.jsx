@@ -11,7 +11,7 @@ export default function FeedbackForm (){
         console.log("formData:::",formData);
         const requestOptions = {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            // headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData)
         };
         fetch("http://164.164.122.169:8090/state-dashboard/api/BskyData/saveFeedback/97d7f7d0-2c6e-4f80-bce2-0d8b5cfaab5b", requestOptions)
