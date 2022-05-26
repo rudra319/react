@@ -3,15 +3,19 @@ import axios from 'axios';
 import { Button } from 'bootstrap';
 import { Col, Container, Form, Row, Table } from 'react-bootstrap';
 import {getFeedBackData} from '../action'
+import { useStateValue } from '../../../context/app';
 
 
 function Home () {
     const [feedbackData, setFeedbackData] = useState({});
     const [distRes, setDistRes] = useState([]);
     
+    const {
+        avinash: [avinashState,avinashDispatch]
+    } = useStateValue();
     
     const callAPI = async()=>{
-        const data = await getFeedBackData();
+        const data = await getFeedBackData(avinashDispatch);
         setFeedbackData(data);
         console.log("fbData::::",data);
     }

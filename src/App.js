@@ -10,11 +10,13 @@ import { Navbar, Container, Nav } from 'react-bootstrap';
 import Error from './pages/Error/Error';
 import Avinash from './pages/avinash/pages';
 import Legends from './pages/Legends/Legends';
+import { AppProvider } from './context/app';
 
 function App() {
   const [cPage, setCPage] = useState("home")
   return (
     <>
+    <AppProvider>
       <h1>React Tutorial</h1>
       
       
@@ -48,6 +50,7 @@ function App() {
          
           <Route path="*" element={<Error />} />
         </Routes> 
+        </AppProvider>
     </>
   );
 }
