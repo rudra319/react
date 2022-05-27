@@ -53,7 +53,7 @@ function Home () {
             </Row>
             <br></br>
             <Row>
-                <Col className='content'  md="8">
+                <Col className='content'  md="12">
                 <h5 className="card-title">Feedback List</h5>
                     <Table striped bordered hover>
                         <thead>
@@ -83,39 +83,6 @@ function Home () {
                         })}
                         </tbody>
                     </Table>
-                </Col>
-                <Col md="4">
-                    <div className="card">
-                        <div className="card-body">
-                            <h5 class="card-title">Feedback Form</h5>
-                            <Form method='post'>
-                                <Form.Group className="mb-3" controlId="formBasicName">
-                                    <Form.Label>Your Name</Form.Label>
-                                    <Form.Control type="text" placeholder="Enter Name" />
-                                </Form.Group>
-                                <Form.Group className="mb-3" controlId="formBasicMobile">
-                                    <Form.Label>Contact No.</Form.Label>
-                                    <Form.Control type="text" placeholder="Enter Name" />
-                                </Form.Group>
-                                <Form.Group className="mb-3" controlId="formBasicEmail">
-                                    <Form.Label>Email address</Form.Label>
-                                    <Form.Control type="email" placeholder="Enter email" />
-                                    {/* <Form.Text className="text-muted">
-                                        We'll never share your email with anyone else.
-                                    </Form.Text> */}
-                                </Form.Group>
-                                <Form.Group className="mb-3" controlId="formBasicPassword">
-                                    <Form.Label>Feedback</Form.Label>
-                                    <Form.Control type="text" placeholder="Your Feedback" />
-                                </Form.Group>
-                                <Form.Control type="submit" variant="primary"  className='btn btn-success' />
-
-                                {/* <Button variant="primary" className="btn-primary">Primary</Button> */}
-
-
-                            </Form>
-                        </div>
-                    </div>
                 </Col>
             </Row>
             </>
