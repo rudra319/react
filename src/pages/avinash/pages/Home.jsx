@@ -7,27 +7,30 @@ import { useStateValue } from '../../../context/app';
 
 
 function Home () {
-    const [feedbackData, setFeedbackData] = useState({});
-    const [distRes, setDistRes] = useState([]);
+    // const [feedbackData, setFeedbackData] = useState({});
+    // const [distRes, setDistRes] = useState([]);
     
     const {
         avinash: [avinashState,avinashDispatch]
     } = useStateValue();
+
+    const {feedbackLoading=false, feedbackData:distRes = []  , feedbackError = false, feedbackMsg = ""} = avinashState;
     
+    console.log("avinashState:::",avinashState)
     const callAPI = async()=>{
-        const data = await getFeedBackData(avinashDispatch);
-        setFeedbackData(data);
-        console.log("fbData::::",data);
+        await getFeedBackData(avinashDispatch);
+        // setFeedbackData(data);
+        // console.log("fbData::::",data);
     }
     useEffect(()=>{
         callAPI() 
     },[]);
 
-    useEffect(()=>{
-        if(feedbackData.distRes){
-        setDistRes(feedbackData.distRes);
-        }
-    },[feedbackData]);
+    // useEffect(()=>{
+    //     if(feedbackData && feedbackData.distRes){
+    //     setDistRes(feedbackData.distRes);
+    //     }
+    // },[feedbackData]);
     return (<>
             <Row>
                 <Col md="4">  
@@ -87,6 +90,8 @@ function Home () {
                         })}
                         </tbody>
                     </Table>
+                    {feedbackLoading == true && (<h1>Loading....</h1>)}
+                    {feedbackError == true && (<h1>Error :( {feedbackMsg}</h1>)}
                 </Col>
                 <Col md="4">
                     <div className="card">
