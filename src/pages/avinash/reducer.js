@@ -5,7 +5,7 @@ import {
     ACTION_GET_FEEDBACK_ERROR
 } from './action';
 
-export const initialState = {}
+export const initialState = {"tesing":"Yo"}
 
 export default (state=initialState, action) => {
     switch(action.type){
@@ -14,7 +14,8 @@ export default (state=initialState, action) => {
                ...state,
                feedbackLoading: true,
                feedbackData: [],
-               feedbackError: false
+               feedbackError: false,
+               feedbackMsg: ""
             }
         }
         case ACTION_GET_FEEDBACK_SUCCESS: {
@@ -23,15 +24,18 @@ export default (state=initialState, action) => {
                ...state,
                feedbackLoading: false,
                feedbackData: distRes,
-               feedbackError: false
+               feedbackError: false,
+               feedbackMsg: ""
             }
         }
         case ACTION_GET_FEEDBACK_ERROR: {
+            const {feedbackMsg = ""} = action;
             return {
                ...state,
                feedbackLoading: false,
                feedbackData: [],
-               feedbackError: true
+               feedbackError: true,
+               feedbackMsg
             }
         }
     }
