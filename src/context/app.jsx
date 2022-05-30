@@ -1,18 +1,15 @@
-import React, {createContext, useReducer, useContext} from 'react';
+import React from 'react';
+import {createStore} from 'redux';
+import {Provider} from 'react-redux'
 
-import AvinashReduicer, {initialState as avinashState} from '../pages/avinash/reducer';
+import AvinashReduicer from '../pages/avinash/reducer';
 
-export const AppContext = createContext();
+
+export const store = createStore(AvinashReduicer);
 export const AppProvider = ({children}) => {
     return (
-        <AppContext.Provider
-            value={{
-                avinash: useReducer(AvinashReduicer, avinashState)
-            }}
-        >
+        <Provider store={store} >
             {children}
-        </AppContext.Provider>
+        </Provider>
     )
 }
-
-export const useStateValue = () => useContext(AppContext);

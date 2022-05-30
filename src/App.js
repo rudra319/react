@@ -1,8 +1,5 @@
 import {  Routes, Route, Link  } from 'react-router-dom';
 import './App.css';
-import Header from './Header';
-import { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Sanghamitra from './pages/Sanghamitra/Sanghamitra';
 import Deepti from './pages/Deepti/Deepti';
 import Home from './pages/Home/Home';
@@ -13,7 +10,6 @@ import Legends from './pages/Legends/Legends';
 import { AppProvider } from './context/app';
 
 function App() {
-  const [cPage, setCPage] = useState("home")
   return (
     <>
     <AppProvider>
