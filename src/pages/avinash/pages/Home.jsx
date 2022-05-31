@@ -1,36 +1,20 @@
-import React, { Component, useEffect, useState } from 'react';
-import axios from 'axios';
-import { Button } from 'bootstrap';
-import { Col, Container, Form, Row, Table } from 'react-bootstrap';
+import React, {  useEffect } from 'react';
+import {useSelector, useDispatch} from 'react-redux';
+import { Col, Form, Row, Table } from 'react-bootstrap';
 import {getFeedBackData} from '../action'
-import { useStateValue } from '../../../context/app';
 
 
 function Home () {
-    // const [feedbackData, setFeedbackData] = useState({});
-    // const [distRes, setDistRes] = useState([]);
-    
-    const {
-        avinash: [avinashState,avinashDispatch]
-    } = useStateValue();
 
-    const {feedbackLoading=false, feedbackData:distRes = []  , feedbackError = false, feedbackMsg = ""} = avinashState;
+    const dispatch = useDispatch();
+    const rootState =  useSelector(state => state);
+
+    const {feedbackLoading=false, feedbackData:distRes = []  , feedbackError = false, feedbackMsg = ""} = rootState || {};
     
-    console.log("avinashState:::",avinashState)
-    const callAPI = async()=>{
-        await getFeedBackData(avinashDispatch);
-        // setFeedbackData(data);
-        // console.log("fbData::::",data);
-    }
     useEffect(()=>{
-        callAPI() 
+        getFeedBackData(dispatch) 
     },[]);
 
-    // useEffect(()=>{
-    //     if(feedbackData && feedbackData.distRes){
-    //     setDistRes(feedbackData.distRes);
-    //     }
-    // },[feedbackData]);
     return (<>
             <Row>
                 <Col md="4">  
