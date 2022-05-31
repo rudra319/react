@@ -2,6 +2,8 @@ import React, { useState,useEffect } from 'react';
 import {Button, Container, Row, Col,Navbar,Nav,striped,bordered ,hover ,Table,Card} from 'react-bootstrap';
 import Button1 from 'react-bootstrap/Button';
 import './Sanghamitra.css'
+import MyForm from './MyForm';
+import MyFormData from './MyFormData';
 
 export default function Demo (){
     const [feedbackData, setFeedbackData] = useState({});
@@ -39,6 +41,9 @@ export default function Demo (){
 
 const [flag, setFlag] = useState(false);
     return(
+      <>
+      <MyForm />
+      <MyFormData />
        <div className='Demo'>
           <h1>Sanghmitra</h1>
           <br></br>
@@ -74,7 +79,7 @@ const [flag, setFlag] = useState(false);
             </Table>
            
        </div>
-
+</>
     )
 
 };

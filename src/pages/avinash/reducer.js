@@ -38,5 +38,13 @@ export default (state=initialState, action) => {
                feedbackMsg
             }
         }
+        case "MY_FORM_SUBMIT": {
+            const {myFormData = ""} = action;
+            console.log("myFormData:::",myFormData)
+            return {
+               ...state,
+               myFormData
+            }
+        }
     }
 }

@@ -37,6 +37,7 @@ function App() {
             <Route path=":id" element={<Legends />} />
             <Route path="deepti" element={<Deepti />} />
             <Route path="avinash" element={<Avinash />} />
+            <Route path="/legends/sanghamitra" element={<Sanghamitra />} />
           </Route>
           {/* <Route path="legends/:lang/list/:id" element={<Legends />}>
             <Route path="avinash" element={<Avinash />} />
