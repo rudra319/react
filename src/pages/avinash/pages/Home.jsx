@@ -24,6 +24,7 @@ function Home() {
 			<Helmet>
 				<title>Avinash Component</title>
 			</Helmet>
+
 			<Row>
 				<Col md="4">
 					<div class="card">
@@ -137,4 +138,7 @@ function Home() {
 	);
 }
 
+export function ChildAvi() {
+	return <h1>I'm Avi's Child</h1>;
+}
 export default Home;
