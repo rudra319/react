@@ -8,6 +8,8 @@ export default class CLassComponent1 extends Component {
 		super(props);
 		this.state = {
 			title: "My Class Comonent",
+			name: "Sanjaya",
+			desc: "I'm a JS Developer",
 		};
 		console.log("constructor::::", this.state);
 	}
@@ -16,14 +18,6 @@ export default class CLassComponent1 extends Component {
 		return null;
 	}
 
-	clickMe() {
-		alert("Yo");
-		this.setState(function (state, props) {
-			return {
-				title: "My Class Comonent Clicked",
-			};
-		});
-	}
 	render() {
 		console.log("render:::", this.state);
 		return (
@@ -31,22 +25,41 @@ export default class CLassComponent1 extends Component {
 				<Helmet>
 					<title>React Class Component</title>
 				</Helmet>
-				<h1>{this.state.title}</h1>Hello Class Component
+				<h1>{this.state.name} Here</h1>
+				<p>{this.state.desc}</p>
 				{/* <CLassComponentChild /> */}
 				<Button
-					onClick={this.clickMe}
+					onClick={() => this.clickMe()}
 					style={{ color: "red" }}
 					className="btn-prime"
 				>
 					Click Me
 				</Button>
+				<p>
+					{(this.state.myData && this.state.myData.title) || "API Loading..."}
+				</p>
 				<br />
-				<button>2nd Button</button>
+				<button onClick={() => this.callAPI()}>2nd Button</button>
 			</>
 		);
 	}
 
 	componentDidMount() {
 		console.log("componentDidMount:::", this.state);
+		this.callAPI();
+	}
+
+	clickMe() {
+		this.setState({ name: "Kalki", desc: "I'm a Rapper" });
+	}
+	async callAPI() {
+		await fetch("https://jsonplaceholder.typicode.com/todos/1")
+			.then((response) => response.json())
+			.then((json) => {
+				console.log(json);
+				this.setState({ myData: json });
+			});
+
+		console.log("Yo Yo");
 	}
 }
